@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Root: NO dark background, NO forced colors ─── */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Removed: color and background-color from Vite boilerplate.
+     They were causing the dark #242424 bleed on the right side. */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Body: FULL WIDTH — no flex centering ─── */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* REMOVED: display:flex + place-items:center + min-width:320px
+     These were Vite demo boilerplate. They shrink body to
+     content-width and center it — that was your black-half bug. */
+}
+
+/* ─── #root must also fill full width ─── */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+/* ─── Buttons: neutral only — no dark backgrounds ─── */
+/* REMOVED: background-color:#1a1a1a and border-color:#646cff hover
+   They were bleeding dark styles into every button in the app. */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0a080;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8a6455;
+}

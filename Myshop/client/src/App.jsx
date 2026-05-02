@@ -26,55 +26,30 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 
 import AdminProducts from "./pages/AdminProducts";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-import api from "./services/api";
+// import api from "./services/api";
 
-function App() {
-  const [products, setProducts] = useState([]);
+// function App() {
+//   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    api
-      .get("/products")
-      .then((res) => setProducts(res.data.items || []))
-      .catch((err) => console.error("Error fetching products:", err));
-  }, []);
+//   useEffect(() => {
+//     api
+//       .get("/products")
+//       .then((res) => setProducts(res.data.items || []))
+//       .catch((err) => console.error("Error fetching products:", err));
+  // }, []);
 
-  document.addEventListener("click", () => {
-    window.userInteracted = true;
-  }, { once: true });
+  // document.addEventListener("click", () => {
+  //   window.userInteracted = true;
+  // }, { once: true });
 
   return (
     <Router>
       <Routes>
-        {/* الصفحة الرئيسية → المنتجات */}
-        <Route
-          path="/"
-          element={
-            <div style={{ padding: "20px" }}>
-              <h1>🛍️ قائمة المنتجات</h1>
-
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
-                {products.map((product) => (
-                  <div
-                    key={product.id}
-                    style={{
-                      border: "1px solid #ddd",
-                      borderRadius: "10px",
-                      padding: "15px",
-                      width: "200px",
-                    }}
-                  >
-                    <h3>{product.name}</h3>
-                    <p>السعر: {product.price} جنيه</p>
-                    <p>التصنيف: {product.category}</p>
-                    <p>العلامة التجارية: {product.brand}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          }
-        />
+      
+        {/* الصفحة الرئيسية → Login (default) */}
+        <Route path="/" element={<Login />} />
         <Route path="/user" element={<ProtectedRoute allowedRoles={["User", "Admin"]}> <UserLayout /></ProtectedRoute>}>
           {/* Nested routes for user layout */}
           <Route path="profile" element={<Profile />} />

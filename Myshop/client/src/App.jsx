@@ -30,7 +30,7 @@ import AdminProducts from "./pages/AdminProducts";
 
 // import api from "./services/api";
 
-// function App() {
+function App() {
 //   const [products, setProducts] = useState([]);
 
 //   useEffect(() => {
